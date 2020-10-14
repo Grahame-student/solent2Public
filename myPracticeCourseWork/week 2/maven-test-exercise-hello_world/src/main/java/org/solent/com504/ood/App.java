@@ -2,7 +2,6 @@ package org.solent.com504.ood;
 
 /**
  * Hello world!
- *
  */
 public class App 
 {
