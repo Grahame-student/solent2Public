@@ -6,10 +6,10 @@ name: Week 2 log4j
 on:
   push:
     paths:
-    - 'myPracticeCourseWork/week_2/maven-test-exercise-log4j/**'
+    - 'myPracticeCourseWork/week 2/maven-test-exercise-log4j/**'
   pull_request:
     paths:
-    - 'myPracticeCourseWork/week_2/maven-test-exercise-log4j/**'
+    - 'myPracticeCourseWork/week 2/maven-test-exercise-log4j/**'
 
 jobs:
   build:
@@ -24,7 +24,7 @@ jobs:
         java-version: 1.8
     - name: Build week_2 log4j project with Maven 
       run: mvn -B package --file pom.xml
-      working-directory: myPracticeCourseWork/week_2/maven-test-exercise-log4j
+      working-directory: myPracticeCourseWork/week 2/maven-test-exercise-log4j
       
   super-lint:
     # Name the Job
@@ -42,5 +42,5 @@ jobs:
         uses: github/super-linter@v3
         env:
           DEFAULT_BRANCH: main
-          FILTER_REGEX_INCLUDE: ^myPracticeCourseWork/_week_2/maven-test-exercise-log4j/.*
+          FILTER_REGEX_INCLUDE: ^myPracticeCourseWork/week 2/maven-test-exercise-log4j/.*
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

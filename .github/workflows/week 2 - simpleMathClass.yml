@@ -6,10 +6,10 @@ name: Week 2 simple maths class
 on:
   push:
     paths:
-    - 'myPracticeCourseWork/week_2/maven-test-exercise-simple-maths-class/**'
+    - 'myPracticeCourseWork/week 2/maven-test-exercise-simple-maths-class/**'
   pull_request:
     paths:
-    - 'myPracticeCourseWork/week_2/maven-test-exercise-simple-maths-class/**'
+    - 'myPracticeCourseWork/week 2/maven-test-exercise-simple-maths-class/**'
 
 jobs:
   build:
@@ -24,7 +24,7 @@ jobs:
         java-version: 1.8
     - name: Build week_2 simple maths class project with Maven 
       run: mvn -B package --file pom.xml
-      working-directory: myPracticeCourseWork/week_2/maven-test-exercise-simple-maths-class/
+      working-directory: myPracticeCourseWork/week 2/maven-test-exercise-simple-maths-class/
       
   super-lint:
     # Name the Job
@@ -42,5 +42,5 @@ jobs:
         uses: github/super-linter@v3
         env:
           DEFAULT_BRANCH: main
-          FILTER_REGEX_INCLUDE: ^myPracticeCourseWork/_week_2/maven-test-exercise-simple-maths-class/.*
+          FILTER_REGEX_INCLUDE: ^myPracticeCourseWork/week 2/maven-test-exercise-simple-maths-class/.*
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
