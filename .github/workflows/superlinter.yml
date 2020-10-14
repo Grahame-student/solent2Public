@@ -20,7 +20,6 @@ jobs:
       # Runs the Super-Linter action
       - name: Run Super-Linter
         uses: github/super-linter@v3
-      working-directory: myPracticeCourseWork/_week_0/template_project
       env:
           DEFAULT_BRANCH: main
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
