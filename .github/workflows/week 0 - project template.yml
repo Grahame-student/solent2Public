@@ -6,10 +6,10 @@ name: Java CI with Maven - Week 0 project template
 on:
   push:
     paths:
-    - 'myPracticeCourseWork/_week_0/template_project'
+    - 'myPracticeCourseWork/_week_0/template_project/**'
   pull_request:
     paths:
-    - 'myPracticeCourseWork/_week_0/template_project'
+    - 'myPracticeCourseWork/_week_0/template_project/**'
 
 jobs:
   build:

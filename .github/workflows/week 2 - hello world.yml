@@ -6,10 +6,10 @@ name: Java CI with Maven - Week 2 hello world
 on:
   push:
     paths:
-    - 'myPracticeCourseWork/week_2/maven-test-exercise-hello_world'
+    - 'myPracticeCourseWork/week_2/maven-test-exercise-hello_world/**'
   pull_request:
     paths:
-    - 'myPracticeCourseWork/week_2/maven-test-exercise-hello_world'
+    - 'myPracticeCourseWork/week_2/maven-test-exercise-hello_world/**'
 
 jobs:
   build:
