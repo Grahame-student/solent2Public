@@ -1,5 +1,5 @@
 
-name: Run Super-Linter on whole repository
+name: Run Super-Linter on week 0 - template project
 
 # Run this workflow every time a new commit pushed to your repository
 on: push
@@ -23,4 +23,5 @@ jobs:
         uses: github/super-linter@v3
         env:
           DEFAULT_BRANCH: main
+          FILTER_REGEX_INCLUDE: ^myPracticeCourseWork/_week_0/template_project/.*
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
