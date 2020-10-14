@@ -2,7 +2,12 @@
 name: Run Super-Linter on week 0 - template project
 
 # Run this workflow every time a new commit pushed to your repository
-on: push
+  push:
+    paths:
+    - 'myPracticeCourseWork/_week_0/template_project/**'
+  pull_request:
+    paths:
+    - 'myPracticeCourseWork/_week_0/template_project/**'
 
 jobs:
   # Set the job key. The key is displayed as the job name
