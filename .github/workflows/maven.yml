@@ -26,12 +26,12 @@ jobs:
       
     - name: Build week_2 hello world project with Maven 
       run: mvn -B package --file pom.xml
-      working-directory: myPracticeCourseWork/week_2/maven-test-exercise-hello_world
+      working-directory: ../../week_2/maven-test-exercise-hello_world
       
     - name: Build week_2 log4j project with Maven 
       run: mvn -B package --file pom.xml
-      working-directory: myPracticeCourseWork/week_2/maven-test-exercise-log4j
+      working-directory: ../../week_2/maven-test-exercise-log4j
 
     - name: Build week_2 simple maths class project with Maven 
       run: mvn -B package --file pom.xml
-      working-directory: myPracticeCourseWork/week_2/maven-test-exercise-simple-maths-class
+      working-directory: ../../week_2/maven-test-exercise-simple-maths-class
