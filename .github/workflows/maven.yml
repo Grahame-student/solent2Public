@@ -21,7 +21,7 @@ jobs:
       with:
         java-version: 1.8
     - name: Build week_0 template project with Maven 
-      run: mvn -B package --file pom.xml
+      shell: ls
       working-directory: myPracticeCourseWork/_week_0/template_project
       
     - name: Build week_2 hello world project with Maven 
