@@ -23,3 +23,4 @@ jobs:
         env:
           DEFAULT_BRANCH: main
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        working-directory: myPracticeCourseWork/_week_0/template_project
