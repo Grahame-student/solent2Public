@@ -3,12 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package org.solent.com504.ood.example2.test;
+package org.solent.com504.ood;
 
 import org.junit.Assert;
 import static org.junit.Assert.*;
 import org.junit.Test;
-import org.solent.com504.ood.example2.SimpleMathClass;
+import org.solent.com504.ood.SimpleMathClass;
 
 /**
  *
@@ -18,7 +18,7 @@ public class SimpleMathClassTest {
     
     @Test
     public void testMain() {
-        String[] args = {"add","1.5", "300"};
+        String[] args = {"add", "1.5", "300"};
         SimpleMathClass.main(args);
     }
 
