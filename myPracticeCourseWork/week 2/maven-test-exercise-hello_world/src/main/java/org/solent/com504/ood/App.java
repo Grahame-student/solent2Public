@@ -6,6 +6,8 @@ package org.solent.com504.ood;
  */
 public class App 
 {
+    private int abc;
+    
     public static void main( String[] args ) {
         System.out.println( "Hello World!" );
     }
