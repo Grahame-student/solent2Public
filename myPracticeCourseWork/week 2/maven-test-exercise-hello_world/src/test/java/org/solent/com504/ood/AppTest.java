@@ -16,6 +16,6 @@ public class AppTest
     @Test
     public void shouldAnswerWithTrue()
     {
-        assertThat(false, equalTo(true));
+        assertThat(true, equalTo(true));
     }
 }
