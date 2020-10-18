@@ -8,8 +8,15 @@ import org.apache.logging.log4j.LogManager;
  */
 public final class MyTestClassLog4j
 {
-    public static Logger logger = LogManager.getLogger(MyTestClassLog4j.class);
+    /**
+     * 
+     */
+    private static final Logger logger = LogManager.getLogger(MyTestClassLog4j.class);
 
+    /**
+     * Main function - entry point for the application.
+     * @param args List of arguments passed to the main function
+     */
     public static void main(final String[] args)
     {
         MyTestClassLog4j myTestClassLog4j = new MyTestClassLog4j();
