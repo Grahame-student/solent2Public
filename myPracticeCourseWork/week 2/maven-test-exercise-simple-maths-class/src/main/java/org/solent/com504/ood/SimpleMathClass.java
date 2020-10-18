@@ -9,7 +9,9 @@ import org.apache.logging.log4j.Logger;
  */
 public class SimpleMathClass
 {
-
+    /**
+     *
+     */
     public final static Logger LOG = LogManager.getLogger(SimpleMathClass.class);
 
     // main class is called when a java program is started
@@ -33,14 +35,18 @@ public class SimpleMathClass
         {
             System.out.println("problem with arguments " + e.getMessage());
         }
-
     }
 
+    /**
+     *
+     * @param arguments
+     * @return
+     */
     public double parseArguments(final String[] arguments)
     {
         LOG.debug("parseArguments called with arguments: " + arguments);
 
-        // better - you print out the arguments and only run thsi code block if in debug mode
+        // better - you print out the arguments and only run this code block if in debug mode
         if (LOG.isDebugEnabled())
         {
             String msg = "parseArguments called with arguments:";
@@ -72,26 +78,47 @@ public class SimpleMathClass
         return answer;
     }
 
+    /**
+     *
+     * @param number1
+     * @param number2
+     * @return
+     */
     public double add(double number1, double number2)
     {
         return number1 + number2;
     }
 
+    /**
+     *
+     * @param number1
+     * @param number2
+     * @return
+     */
     public double subtract(double number1, double number2)
     {
         return number1 - number2;
     }
 
-    //TODO FIX ME
+    /**
+     *
+     * @param number1
+     * @param number2
+     * @return
+     */
     public double multiply(double number1, double number2)
     {
         return Double.NaN;
     }
 
-    //TODO FIX ME
+    /**
+     * 
+     * @param number1
+     * @param number2
+     * @return
+     */
     public double divide(double number1, double number2)
     {
         return Double.NaN;
     }
-
 }
