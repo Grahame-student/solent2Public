@@ -1,6 +1,7 @@
 package org.solent.com504.ood;
 
-import static org.junit.Assert.assertTrue;
+import static org.hamcrest.MatcherAssert.assertThat;         
+import static org.hamcrest.Matchers.equalTo;
 
 import org.junit.Test;
 
@@ -15,6 +16,6 @@ public class AppTest
     @Test
     public void shouldAnswerWithTrue()
     {
-        assertTrue(true);
+        assertThat(false, equalTo(true));
     }
 }
