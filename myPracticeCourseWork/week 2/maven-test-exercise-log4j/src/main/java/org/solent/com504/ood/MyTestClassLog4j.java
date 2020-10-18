@@ -9,7 +9,7 @@ import org.apache.logging.log4j.LogManager;
 public final class MyTestClassLog4j
 {
     /**
-     * 
+     * field to hold a reference to the logger shared by all instances of this class.
      */
     private static final Logger logger = LogManager.getLogger(MyTestClassLog4j.class);
 
@@ -24,12 +24,12 @@ public final class MyTestClassLog4j
     }
 
     /**
-     * This is a javadoc comment on writeAboutMe.
+     * Log the name of the class.
      */
-    public void writeAboutMe()
+    private void writeAboutMe()
     {
-        System.out.println("This is a system out message from : "+ MyTestClassLog4j.class);
-        logger.error("This is a log4j message from : "+ MyTestClassLog4j.class);
+        System.out.println("This is a system out message from : " + MyTestClassLog4j.class);
+        logger.error("This is a log4j message from : " + MyTestClassLog4j.class);
     }
 
     /**
@@ -37,8 +37,8 @@ public final class MyTestClassLog4j
      * @param name
      * @return
      */
-    public String talkAboutMe(String name)
+    public String talkAboutMe(final String name)
     {
-        return "talking about "+name;
+        return "talking about " + name;
     }
 }

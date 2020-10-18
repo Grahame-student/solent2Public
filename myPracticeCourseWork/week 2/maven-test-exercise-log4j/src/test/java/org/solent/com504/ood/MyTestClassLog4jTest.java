@@ -24,7 +24,7 @@ public class MyTestClassLog4jTest
     }
 
     /**
-     *
+     * Test that talkAboutMe appends the passed in string to "talking about ".
      */
     @Test
     public void shouldAnswerWithName()
