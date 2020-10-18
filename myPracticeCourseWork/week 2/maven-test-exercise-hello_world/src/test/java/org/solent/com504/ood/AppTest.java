@@ -11,10 +11,10 @@ import org.junit.Test;
 public class AppTest
 {
     /**
-     * Test that main doesn't an exception when called.
+     * Test that main doesn't throw an exception when called.
      */
     @Test
-    public void main_DoesNotThrowException_WhenRun()
+    public void mainDoesNotThrowExceptionWhenRun()
     {
         String[] args = {};
 
