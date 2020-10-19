@@ -83,10 +83,10 @@ public class SimpleMathClass
     }
 
     /**
-     *
+     * Add {@code number1} to {@code number2}.
      * @param number1
      * @param number2
-     * @return
+     * @return the sum of {@code number1} and {@code number2}
      */
     public double add(final double number1, final double number2)
     {
@@ -94,10 +94,10 @@ public class SimpleMathClass
     }
 
     /**
-     *
+     * Subtract {@code number2} from {@code number1}.
      * @param number1
      * @param number2
-     * @return
+     * @return the result of subtracting {@code number2} from {@code number1}
      */
     public double subtract(final double number1, final double number2)
     {
@@ -108,7 +108,7 @@ public class SimpleMathClass
      *
      * @param number1
      * @param number2
-     * @return
+     * @return the result of multiplying {code number1} from {@code number2}
      */
     public double multiply(final double number1, final double number2)
     {
@@ -119,7 +119,7 @@ public class SimpleMathClass
      *
      * @param number1
      * @param number2
-     * @return
+     * @return the result of dividing {code number1} by {@code number2}
      */
     public double divide(final double number1, final double number2)
     {
