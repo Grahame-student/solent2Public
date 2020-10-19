@@ -12,7 +12,7 @@ public class SimpleMathClass
     /**
      *
      */
-    public final static Logger LOG = LogManager.getLogger(SimpleMathClass.class);
+    public static final Logger LOG = LogManager.getLogger(SimpleMathClass.class);
 
     // main class is called when a java program is started
     // try java
@@ -112,7 +112,7 @@ public class SimpleMathClass
     }
 
     /**
-     * 
+     *
      * @param number1
      * @param number2
      * @return
