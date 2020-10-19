@@ -14,8 +14,10 @@ public class SimpleMathClass
      */
     public static final Logger LOG = LogManager.getLogger(SimpleMathClass.class);
 
-    // main class is called when a java program is started
-    // try java
+    /**
+     * Main entry point to the application.
+     * @param args array of strings, where each one represents an argumentS
+     */
     public static void main(final String[] args)
     {
         String arguments = "Program called with arguments:";
@@ -29,7 +31,7 @@ public class SimpleMathClass
         try
         {
             double result = mathClass.parseArguments(args);
-            System.out.println("Result =" + result);
+            System.out.println("Result = " + result);
         }
         catch (Exception e)
         {
@@ -44,6 +46,8 @@ public class SimpleMathClass
      */
     public double parseArguments(final String[] arguments)
     {
+        final int REQ_ARG_COUNT = 3;
+
         LOG.debug("parseArguments called with arguments: " + arguments);
 
         // better - you print out the arguments and only run this code block if in debug mode
@@ -57,7 +61,7 @@ public class SimpleMathClass
             }
         }
 
-        if (arguments.length != 3)
+        if (arguments.length != REQ_ARG_COUNT)
         {
             throw new IllegalArgumentException("you must have 3 arguments (add|subrract) number1 number2");
         }
