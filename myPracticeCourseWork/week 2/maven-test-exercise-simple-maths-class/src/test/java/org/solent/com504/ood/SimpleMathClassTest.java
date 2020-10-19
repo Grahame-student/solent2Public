@@ -12,7 +12,7 @@ import org.junit.Test;
 public class SimpleMathClassTest
 {
     /**
-     * Test that main doesn't throw an exception with valid inputs
+     * Test that main doesn't throw an exception with valid inputs.
      */
     @Test
     public void testMain()
@@ -25,26 +25,26 @@ public class SimpleMathClassTest
     }
 
     /**
-     * Remove this test as the maths functions should be private
+     * Remove this test as the maths functions should be private.
      */
     @Test
     public void testAdd()
     {
-        double number1 = 1.5;
-        double number2 = 300;
+        final double number1 = 1.5;
+        final double number2 = 300;
 
         SimpleMathClass simpleMathClass = new SimpleMathClass();
         double result = simpleMathClass.add(number1, number2);
 
-        double expectedResult = 301.5;
-        double acceptableDelta = 0.00001;
+        final double expectedResult = 301.5;
+        final double acceptableDelta = 0.00001;
 
         // expected, result, delta (compare floating point numbers
         assertThat(result, closeTo(expectedResult, acceptableDelta));
     }
 
     /**
-     * remove this test as the parser should be private
+     * remove this test as the parser should be private.
      */
     @Test
     public void testParseAdd()
@@ -57,8 +57,8 @@ public class SimpleMathClassTest
         };
         double result = simpleMathClass.parseArguments(args);
 
-        double expectedResult = 301.5;
-        double acceptableDelta = 0.00001;
+        final double expectedResult = 301.5;
+        final double acceptableDelta = 0.00001;
         // expected, result, delta (compare floating point numbers
         assertThat(result, closeTo(expectedResult, acceptableDelta));
     }

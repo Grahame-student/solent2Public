@@ -42,7 +42,7 @@ public class SimpleMathClass
     /**
      * Parse the parameters and carry out the appropriate mathematical operation.
      * @param arguments
-     * @return
+     * @return return the result from the requested mathematical operation
      */
     public double parseArguments(final String[] arguments)
     {
