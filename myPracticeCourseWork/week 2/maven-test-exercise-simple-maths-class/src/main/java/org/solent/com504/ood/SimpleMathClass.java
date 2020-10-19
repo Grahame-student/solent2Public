@@ -48,7 +48,7 @@ public class SimpleMathClass
     {
         final int REQ_ARG_COUNT = 3;
 
-        LOG.debug("parseArguments called with arguments: " + arguments);
+        LOG.debug("parseArguments called with arguments: " + String.join(", ", arguments));
 
         // better - you print out the arguments and only run this code block if in debug mode
         if (LOG.isDebugEnabled())
@@ -88,7 +88,7 @@ public class SimpleMathClass
      * @param number2
      * @return
      */
-    public double add(double number1, double number2)
+    public double add(final double number1, final double number2)
     {
         return number1 + number2;
     }
@@ -99,7 +99,7 @@ public class SimpleMathClass
      * @param number2
      * @return
      */
-    public double subtract(double number1, double number2)
+    public double subtract(final double number1, final double number2)
     {
         return number1 - number2;
     }
@@ -110,7 +110,7 @@ public class SimpleMathClass
      * @param number2
      * @return
      */
-    public double multiply(double number1, double number2)
+    public double multiply(final double number1, final double number2)
     {
         return Double.NaN;
     }
@@ -121,7 +121,7 @@ public class SimpleMathClass
      * @param number2
      * @return
      */
-    public double divide(double number1, double number2)
+    public double divide(final double number1, final double number2)
     {
         return Double.NaN;
     }
