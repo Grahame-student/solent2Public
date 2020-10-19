@@ -40,13 +40,13 @@ public class SimpleMathClass
     }
 
     /**
-     *
+     * Parse the parameters and carry out the appropriate mathematical operation.
      * @param arguments
      * @return
      */
     public double parseArguments(final String[] arguments)
     {
-        final int REQ_ARG_COUNT = 3;
+        final int reqArgCount = 3;
 
         LOG.debug("parseArguments called with arguments: " + String.join(", ", arguments));
 
@@ -61,7 +61,7 @@ public class SimpleMathClass
             }
         }
 
-        if (arguments.length != REQ_ARG_COUNT)
+        if (arguments.length != reqArgCount)
         {
             throw new IllegalArgumentException("you must have 3 arguments (add|subrract) number1 number2");
         }
