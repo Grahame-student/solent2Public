@@ -54,9 +54,9 @@ public class SimpleMathClass
         if (LOG.isDebugEnabled())
         {
             String msg = "parseArguments called with arguments:";
-            for (int i = 0; i < arguments.length; i++)
+            for (String argument : arguments)
             {
-                msg = msg + " " + arguments[i];
+                msg = msg + " " + argument;
                 LOG.debug(msg);
             }
         }
