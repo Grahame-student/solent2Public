@@ -21,9 +21,9 @@ public class SimpleMathClass
     public static void main(final String[] args)
     {
         String arguments = "Program called with arguments:";
-        for (int i = 0; i < args.length; i++)
+        for (String arg : args)
         {
-            arguments = arguments + " " + args[i];
+            arguments = arguments + " " + arg;
         }
         System.out.println(arguments);
 
