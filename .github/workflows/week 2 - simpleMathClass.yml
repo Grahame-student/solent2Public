@@ -17,14 +17,21 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v2
-    - name: Set up JDK 1.8
-      uses: actions/setup-java@v1
-      with:
-        java-version: 1.8
-    - name: Build week_2 simple maths class project with Maven 
-      run: mvn -B package --file pom.xml
-      working-directory: myPracticeCourseWork/week 2/maven-test-exercise-simple-maths-class/
+      - name: Checkout the code
+        uses: actions/checkout@v2
+      - name: Set up JDK 1.8
+        uses: actions/setup-java@v1
+        with:
+          java-version: 1.8
+      - name: Cache Maven packages
+        uses: actions/cache@v2
+        with:
+          path: ~/.m2
+          key: ${{ runner.os }}-m2-${{ hashFiles('**/pom.xml') }}
+          restore-keys: ${{ runner.os }}-m2
+      - name: Build week_2 simple maths class project with Maven 
+        run: mvn -B package --file pom.xml
+        working-directory: myPracticeCourseWork/week 2/maven-test-exercise-simple-maths-class/
       
   super-lint:
     # Name the Job
