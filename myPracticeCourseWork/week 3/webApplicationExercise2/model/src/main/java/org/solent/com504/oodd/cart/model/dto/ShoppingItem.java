@@ -13,7 +13,6 @@ import java.util.UUID;
  */
 public class ShoppingItem
 {
-
     private String uuid = null;
     private String name = null;
     private Integer quantity = 0;
@@ -73,7 +72,9 @@ public class ShoppingItem
     @Override
     public String toString()
     {
-        return "ShoppingItem{" + "uuuid=" + uuid + ", name=" + name + ", quantity=" + quantity + ", price=" + price + '}';
+        return "ShoppingItem{" + "uuuid=" + uuid +
+                ", name=" + name +
+                ", quantity=" + quantity +
+                ", price=" + price + '}';
     }
-
 }

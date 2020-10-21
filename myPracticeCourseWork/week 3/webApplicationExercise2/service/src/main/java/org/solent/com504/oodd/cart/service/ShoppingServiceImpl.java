@@ -19,10 +19,10 @@ import org.solent.com504.oodd.cart.model.service.ShoppingService;
  */
 public class ShoppingServiceImpl implements ShoppingService
 {
+    private final HashMap<String, ShoppingItem> itemMap = new HashMap<String, ShoppingItem>();
 
-    private HashMap<String, ShoppingItem> itemMap = new HashMap<String, ShoppingItem>();
-
-    private List<ShoppingItem> itemlist = Arrays.asList(new ShoppingItem("house", 20000.00),
+    private final List<ShoppingItem> itemlist = Arrays.asList(
+            new ShoppingItem("house", 20000.00),
             new ShoppingItem("hen", 5.00),
             new ShoppingItem("car", 5000.00),
             new ShoppingItem("pet alligator", 65.00)
@@ -30,7 +30,6 @@ public class ShoppingServiceImpl implements ShoppingService
 
     public ShoppingServiceImpl()
     {
-
         // initialised the hashmap
         for (ShoppingItem item : itemlist)
         {
@@ -67,5 +66,4 @@ public class ShoppingServiceImpl implements ShoppingService
         item.setUuid(UUID.randomUUID().toString());
         return item;
     }
-
 }

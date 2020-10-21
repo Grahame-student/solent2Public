@@ -14,11 +14,9 @@ import java.util.List;
  */
 public interface ShoppingService
 {
-
     public List<ShoppingItem> getAvailableItems();
 
     public boolean purchaseItems(ShoppingCart shoppingCart);
 
     public ShoppingItem getNewItemByName(String uuid);
-
 }

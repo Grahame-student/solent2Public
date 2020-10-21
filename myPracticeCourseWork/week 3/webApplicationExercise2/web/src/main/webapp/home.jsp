@@ -13,31 +13,38 @@
 <%@ page import="org.solent.com504.oodd.cart.web.WebObjectFactory"%>
 <%
     request.setAttribute("selectedPage", "home");
-    String message="";
+    String message = "";
 
     ShoppingService shoppingService = WebObjectFactory.getShoppingService();
 
     ShoppingCart shoppingCart = (ShoppingCart) session.getAttribute("shoppingCart");
-    if (shoppingCart == null) {
+    if (shoppingCart == null)
+    {
         shoppingCart = WebObjectFactory.getNewShoppingCart();
         session.setAttribute("shoppingCart", shoppingCart);
     }
 
     String action = (String) request.getParameter("action");
     String itemName = (String) request.getParameter("itemName");
-    String itemUuid = (String) request.getParameter("itemuuid");
+    String itemUuid = (String) request.getParameter("itemUUID");
 
-    if ("addItemToCart".equals(action)) {
-        message = "adding "+itemName + " to cart";
+    if ("addItemToCart".equals(action))
+    {
+        message = "adding " + itemName + " to cart";
         ShoppingItem shoppingItem = shoppingService.getNewItemByName(itemName);
-        message = "adding "+itemName + " to cart : "+shoppingItem;
+        message = "adding " + itemName + " to cart : " + shoppingItem;
         shoppingCart.addItemToCart(shoppingItem);
     }
-    if ("removeItemFromCart".equals(action)) {
-        message = "removing "+itemName + " from cart";
+
+    if ("removeItemFromCart".equals(action))
+    {
+        message = "removing " + itemName + " from cart";
+
         shoppingCart.removeItemFromCart(itemUuid);
-    } else {
-        message = "action="+action;
+    }
+    else
+    {
+        message = "action=" + action;
     }
 
 %>
@@ -45,7 +52,7 @@
 <!-- Begin page content -->
 <main role="main" class="container">
     <H1>Home</H1>
-    <p><%=message %><p>
+    <p><%=message%><p>
 
         <!-- The .table class adds basic styling (light padding and only horizontal dividers) to a table: -->
     <H1>Available Items</H1>
@@ -57,7 +64,8 @@
             <th>Quantity</th>
         </tr>
 
-        <% for (ShoppingItem item : shoppingService.getAvailableItems()) {%>
+        <% for (ShoppingItem item : shoppingService.getAvailableItems())
+            {%>
         <tr>
             <td><%=item.getName()%></td>
             <td><%=item.getPrice()%></td>
@@ -65,7 +73,7 @@
             <td>
                 <!-- post avoids url encoded parameters -->
                 <form action="./home.jsp" method="get">
-                    <input type="hidden" name="itemName" value="<%=item.getName() %>">
+                    <input type="hidden" name="itemName" value="<%=item.getName()%>">
                     <input type="hidden" name="action" value="addItemToCart">
                     <button type="submit" >Add Item</button>
                 </form>
@@ -84,7 +92,8 @@
             <th>Quantity</th>
         </tr>
 
-        <% for (ShoppingItem item : shoppingCart.getShoppingCartItems()) {%>
+        <% for (ShoppingItem item : shoppingCart.getShoppingCartItems())
+            {%>
         <tr>
             <td><%=item.getName()%></td>
             <td><%=item.getPrice()%></td>
@@ -100,6 +109,11 @@
         </tr>
         <% }%>
 
+        <tr>
+            <td><h2>Total</h2></td>
+            <td><h2><%=shoppingCart.getTotal()%></h2></td>
+            <td></td>
+        </tr>
     </table>
 
 

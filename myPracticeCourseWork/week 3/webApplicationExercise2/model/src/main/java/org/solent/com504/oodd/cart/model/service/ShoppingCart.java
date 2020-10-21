@@ -14,7 +14,6 @@ import java.util.List;
  */
 public interface ShoppingCart
 {
-
     public List<ShoppingItem> getShoppingCartItems();
 
     public void addItemToCart(ShoppingItem shoppingItem);
@@ -22,5 +21,4 @@ public interface ShoppingCart
     public void removeItemFromCart(String itemUuid);
 
     public double getTotal();
-
 }
