@@ -67,7 +67,7 @@ public class ShoppingCartImpl implements ShoppingCart
         for (String itemUUID : itemMap.keySet())
         {
             ShoppingItem shoppingCartItem = itemMap.get(itemUUID);
-            total += (shoppingCartItem.getPrice() + shoppingCartItem.getQuantity());
+            total += (shoppingCartItem.getPrice() * shoppingCartItem.getQuantity());
         }
 
         return total;
