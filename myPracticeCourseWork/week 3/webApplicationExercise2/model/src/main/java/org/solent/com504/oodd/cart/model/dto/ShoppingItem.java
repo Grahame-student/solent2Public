@@ -72,7 +72,8 @@ public class ShoppingItem
     @Override
     public String toString()
     {
-        return "ShoppingItem{" + "uuuid=" + uuid +
+        return "ShoppingItem{" +
+                "uuuid=" + uuid +
                 ", name=" + name +
                 ", quantity=" + quantity +
                 ", price=" + price + '}';
