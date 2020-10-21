@@ -1,4 +1,4 @@
-<%-- 
+<%--
     Document   : content
     Created on : Jan 4, 2020, 11:19:47 AM
     Author     : cgallen
@@ -47,7 +47,7 @@
     <H1>Home</H1>
     <p><%=message %><p>
 
-    <!-- The .table class adds basic styling (light padding and only horizontal dividers) to a table: -->     
+        <!-- The .table class adds basic styling (light padding and only horizontal dividers) to a table: -->
     <H1>Available Items</H1>
     <table class="table">
 
@@ -68,7 +68,7 @@
                     <input type="hidden" name="itemName" value="<%=item.getName() %>">
                     <input type="hidden" name="action" value="addItemToCart">
                     <button type="submit" >Add Item</button>
-                </form> 
+                </form>
             </td>
         </tr>
         <% }%>
@@ -95,7 +95,7 @@
                     <input type="hidden" name="itemUUID" value="<%=item.getUuid()%>">
                     <input type="hidden" name="action" value="removeItemFromCart">
                     <button type="submit" >Remove Item</button>
-                </form> 
+                </form>
             </td>
         </tr>
         <% }%>

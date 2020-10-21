@@ -17,7 +17,8 @@ import org.solent.com504.oodd.cart.model.service.ShoppingService;
  *
  * @author cgallen
  */
-public class ShoppingServiceImpl implements ShoppingService {
+public class ShoppingServiceImpl implements ShoppingService
+{
 
     private HashMap<String, ShoppingItem> itemMap = new HashMap<String, ShoppingItem>();
 
@@ -27,23 +28,28 @@ public class ShoppingServiceImpl implements ShoppingService {
             new ShoppingItem("pet alligator", 65.00)
     );
 
-    public ShoppingServiceImpl() {
+    public ShoppingServiceImpl()
+    {
 
         // initialised the hashmap
-        for (ShoppingItem item : itemlist) {
+        for (ShoppingItem item : itemlist)
+        {
             itemMap.put(item.getName(), item);
         }
     }
 
     @Override
-    public List<ShoppingItem> getAvailableItems() {
+    public List<ShoppingItem> getAvailableItems()
+    {
         return itemlist;
     }
 
     @Override
-    public boolean purchaseItems(ShoppingCart shoppingCart) {
+    public boolean purchaseItems(ShoppingCart shoppingCart)
+    {
         System.out.println("purchased items");
-        for (ShoppingItem shoppingItem : shoppingCart.getShoppingCartItems()) {
+        for (ShoppingItem shoppingItem : shoppingCart.getShoppingCartItems())
+        {
             System.out.println(shoppingItem);
         }
 
@@ -51,7 +57,8 @@ public class ShoppingServiceImpl implements ShoppingService {
     }
 
     @Override
-    public ShoppingItem getNewItemByName(String name) {
+    public ShoppingItem getNewItemByName(String name)
+    {
         ShoppingItem templateItem = itemMap.get(name);
         ShoppingItem item = new ShoppingItem();
         item.setName(name);

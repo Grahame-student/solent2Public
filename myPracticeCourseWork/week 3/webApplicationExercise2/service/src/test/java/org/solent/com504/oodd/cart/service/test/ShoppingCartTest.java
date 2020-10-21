@@ -18,18 +18,21 @@ import org.solent.com504.oodd.cart.service.ServiceObjectFactory;
  *
  * @author cgallen
  */
-public class ShoppingCartTest {
+public class ShoppingCartTest
+{
 
     ShoppingCart shoppingCart = null;
 
     @Before
-    public void before() {
+    public void before()
+    {
         shoppingCart = ServiceObjectFactory.getNewShoppingCart();
 
     }
 
     @Test
-    public void test1() {
+    public void test1()
+    {
         assertNotNull(shoppingCart);
     }
 

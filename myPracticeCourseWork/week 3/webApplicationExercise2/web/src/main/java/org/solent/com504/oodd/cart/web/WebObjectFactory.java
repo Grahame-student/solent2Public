@@ -15,21 +15,25 @@ import org.solent.com504.oodd.cart.service.ServiceObjectFactory;
  *
  * @author cgallen
  */
-public class WebObjectFactory {
+public class WebObjectFactory
+{
 
     static ShoppingService shoppingService = ServiceObjectFactory.getShoppingService();
-    
+
     // cannot instantiate
-    private WebObjectFactory(){
-        
+    private WebObjectFactory()
+    {
+
     }
-    
-    public static ShoppingService getShoppingService(){
+
+    public static ShoppingService getShoppingService()
+    {
         return shoppingService;
     }
-    
-    public static ShoppingCart getNewShoppingCart(){
+
+    public static ShoppingCart getNewShoppingCart()
+    {
         return ServiceObjectFactory.getNewShoppingCart();
     }
-    
+
 }

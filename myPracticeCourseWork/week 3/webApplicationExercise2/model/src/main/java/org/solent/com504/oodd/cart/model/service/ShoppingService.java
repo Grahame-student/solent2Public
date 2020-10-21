@@ -12,12 +12,13 @@ import java.util.List;
  *
  * @author cgallen
  */
-public interface ShoppingService {
-    
-        public List<ShoppingItem> getAvailableItems();
-        
-        public boolean purchaseItems(ShoppingCart shoppingCart);
-        
-        public ShoppingItem getNewItemByName(String uuid);
+public interface ShoppingService
+{
+
+    public List<ShoppingItem> getAvailableItems();
+
+    public boolean purchaseItems(ShoppingCart shoppingCart);
+
+    public ShoppingItem getNewItemByName(String uuid);
 
 }

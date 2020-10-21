@@ -15,14 +15,17 @@ import org.solent.com504.oodd.cart.model.dto.ShoppingItem;
  *
  * @author cgallen
  */
-public class ShoppingCartImpl implements ShoppingCart {
+public class ShoppingCartImpl implements ShoppingCart
+{
 
     private HashMap<String, ShoppingItem> itemMap = new HashMap<String, ShoppingItem>();
 
     @Override
-    public List<ShoppingItem> getShoppingCartItems() {
+    public List<ShoppingItem> getShoppingCartItems()
+    {
         List<ShoppingItem> itemlist = new ArrayList();
-        for (String itemUUID : itemMap.keySet()) {
+        for (String itemUUID : itemMap.keySet())
+        {
             ShoppingItem shoppingCartItem = itemMap.get(itemUUID);
             itemlist.add(shoppingCartItem);
         }
@@ -30,17 +33,20 @@ public class ShoppingCartImpl implements ShoppingCart {
     }
 
     @Override
-    public void addItemToCart(ShoppingItem shoppingItem) {
+    public void addItemToCart(ShoppingItem shoppingItem)
+    {
         itemMap.put(shoppingItem.getUuid(), shoppingItem);
     }
 
     @Override
-    public void removeItemFromCart(String itemUuid) {
+    public void removeItemFromCart(String itemUuid)
+    {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
-    public double getTotal() {
+    public double getTotal()
+    {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 

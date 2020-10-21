@@ -12,21 +12,25 @@ import org.solent.com504.oodd.cart.model.service.ShoppingService;
  *
  * @author cgallen
  */
-public class ServiceObjectFactory {
-    
+public class ServiceObjectFactory
+{
+
     static ShoppingService shoppingService = new ShoppingServiceImpl();
-    
+
     // cannot instantiate
-    private ServiceObjectFactory(){
-        
+    private ServiceObjectFactory()
+    {
+
     }
-    
-    public static ShoppingService getShoppingService(){
+
+    public static ShoppingService getShoppingService()
+    {
         return shoppingService;
     }
-    
-    public static ShoppingCart getNewShoppingCart(){
+
+    public static ShoppingCart getNewShoppingCart()
+    {
         return new ShoppingCartImpl();
     }
-    
+
 }
