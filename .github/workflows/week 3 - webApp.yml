@@ -31,7 +31,7 @@ jobs:
           restore-keys: ${{ runner.os }}-m2
       - name: Build week_3 web application with Maven 
         run: mvn -B test --file pom.xml
-        working-directory: myPracticeCourseWork/week 2/webApplicationExercise2/
+        working-directory: myPracticeCourseWork/week 3/webApplicationExercise2/
       
   super-lint:
     # Name the Job
