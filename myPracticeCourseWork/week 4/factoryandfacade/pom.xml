@@ -44,14 +44,6 @@
                         </goals>
                     </execution>
                 </executions>
-                <configuration>
-                    <mainClass>org.solent.com504.ood.SimpleMathClass</mainClass>
-                    <arguments>
-                        <argument>add</argument>
-                        <argument>1.5</argument>
-                        <argument>20</argument>
-                    </arguments>
-                </configuration>
             </plugin>
             <plugin>
                 <groupId>org.jacoco</groupId>
