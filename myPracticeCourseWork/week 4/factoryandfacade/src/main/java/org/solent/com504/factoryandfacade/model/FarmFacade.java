@@ -2,8 +2,8 @@ package org.solent.com504.factoryandfacade.model;
 
 import java.util.List;
 
-public interface FarmFacade {
-
+public interface FarmFacade
+{
     public List<Animal> getAllAnimals();
 
     public void addDog(String name);
@@ -11,4 +11,6 @@ public interface FarmFacade {
     public void addCat(String name);
 
     public void addCow(String name);
+
+    public void addDuck(String name);
 }
