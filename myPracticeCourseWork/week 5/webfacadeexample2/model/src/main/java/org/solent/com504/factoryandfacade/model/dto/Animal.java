@@ -21,12 +21,15 @@ public class Animal
 
     private AnimalType animalType;
 
+    private String food;
+
     private Long id;
 
     public Animal()
     {
         name = "";
         address= "";
+        food = "";
     }
 
     // getter and setters
@@ -60,6 +63,16 @@ public class Animal
         this.animalType = animalType;
     }
 
+    public String getFood()
+    {
+        return food;
+    }
+
+    public void setFood(String food)
+    {
+        this.food = food;
+    }
+
     public Long getId()
     {
         return id;
@@ -74,6 +87,6 @@ public class Animal
     @Override
     public String toString()
     {
-        return "Animal{" + "name=" + name + ", address=" + address + ", animalType=" + animalType + ", id=" + id + '}';
+        return "Animal{" + "name=" + name + ", address=" + address + ", animalType=" + animalType + ", food=" + food + ", id=" + id + '}';
     }
 }
