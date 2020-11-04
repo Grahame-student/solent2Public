@@ -67,7 +67,7 @@ public class AnimalDaoJaxbImpl extends AnimalDaoImpl implements AnimalDao
     }
 
     /**
-     * loads xml into dao using jaxb
+     * loads XML into DAO using JAXB
      */
     private void load()
     {

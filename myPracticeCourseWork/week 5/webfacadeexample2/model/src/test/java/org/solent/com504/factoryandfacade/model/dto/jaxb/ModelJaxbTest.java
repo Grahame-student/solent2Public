@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package org.solent.com504.factoryandfacade.test.dto.jaxb;
+package org.solent.com504.factoryandfacade.model.dto.jaxb;
 
 import java.io.File;
 import java.io.StringWriter;
@@ -29,15 +29,12 @@ import org.solent.com504.factoryandfacade.model.dto.ReplyMessage;
  */
 public class ModelJaxbTest
 {
-
     @Test
     public void testAnimalListJaxb()
     {
-
         try
         {
-
-            // test file we will write and read. 
+            // test file we will write and read.
             // Note in target folder so that will be deleted on each run and will not be saved to git
             File file = new File("target/testTransactionData.xml");
             System.out.println("writing test file to " + file.getAbsolutePath());

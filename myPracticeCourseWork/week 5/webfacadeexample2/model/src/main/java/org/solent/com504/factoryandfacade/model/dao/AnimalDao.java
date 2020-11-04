@@ -7,7 +7,6 @@ import org.solent.com504.factoryandfacade.model.dto.AnimalType;
 
 public interface AnimalDao
 {
-
     /**
      * Returns an animal which has a corresponding id
      *
@@ -61,5 +60,4 @@ public interface AnimalDao
      * @return animal of animalType but with no id set
      */
     public Animal create(AnimalType animalType);
-
 }

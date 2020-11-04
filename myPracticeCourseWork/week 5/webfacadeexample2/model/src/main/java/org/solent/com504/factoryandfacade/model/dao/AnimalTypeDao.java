@@ -6,7 +6,6 @@ import org.solent.com504.factoryandfacade.model.dto.AnimalType;
 
 public interface AnimalTypeDao
 {
-
     /**
      * @return list of AnimalTypes which this implementation can support
      */

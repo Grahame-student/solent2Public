@@ -15,7 +15,6 @@ import javax.xml.bind.annotation.XmlRootElement;
 @XmlAccessorType(XmlAccessType.FIELD)
 public class Animal
 {
-
     private String name;
 
     private String address;
@@ -23,6 +22,12 @@ public class Animal
     private AnimalType animalType;
 
     private Long id;
+
+    public Animal()
+    {
+        name = "";
+        address= "";
+    }
 
     // getter and setters
     public String getName()
