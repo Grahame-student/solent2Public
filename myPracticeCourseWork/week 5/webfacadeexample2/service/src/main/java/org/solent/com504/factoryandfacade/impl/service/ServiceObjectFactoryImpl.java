@@ -1,7 +1,7 @@
 package org.solent.com504.factoryandfacade.impl.service;
 
-// import org.solent.com504.factoryandfacade.impl.dao.jaxb.AnimalDaoJaxbImpl;
-import org.solent.com504.factoryandfacade.impl.dao.simple.AnimalDaoImpl;
+import org.solent.com504.factoryandfacade.impl.dao.jaxb.AnimalDaoJaxbImpl;
+// import org.solent.com504.factoryandfacade.impl.dao.simple.AnimalDaoImpl;
 
 import org.solent.com504.factoryandfacade.impl.dao.simple.AnimalTypeDaoImpl;
 import org.solent.com504.factoryandfacade.model.dao.AnimalDao;
@@ -41,11 +41,11 @@ public class ServiceObjectFactoryImpl implements ServiceObjectFactory
 
         // UNCOMMENT THIS TO USE SIMPLE DAO AND COMMENT OUT AnimalDaoJaxbImpl
         // if you just want to use simple DAO do this
-        AnimalDao animalDao = new AnimalDaoImpl();
+        //AnimalDao animalDao = new AnimalDaoImpl();
 
         // UNCOMMENT THIS TO USE JAXB DAO AND COMMENT OUT AnimalDaoImpl()
         // NOTE THIS IS SAYING WHERE THE FILE GOES in TOMCAT
-        //AnimalDao animalDao = new AnimalDaoJaxbImpl(jaxbFile);
+        AnimalDao animalDao = new AnimalDaoJaxbImpl(jaxbFile);
 
 
         farmFacade.setAnimalDao(animalDao);

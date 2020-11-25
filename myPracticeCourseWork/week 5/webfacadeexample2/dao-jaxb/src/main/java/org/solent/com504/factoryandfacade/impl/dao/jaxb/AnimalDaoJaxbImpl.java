@@ -159,5 +159,4 @@ public class AnimalDaoJaxbImpl extends AnimalDaoImpl implements AnimalDao
     {
         return super.create(animalType);
     }
-
 }

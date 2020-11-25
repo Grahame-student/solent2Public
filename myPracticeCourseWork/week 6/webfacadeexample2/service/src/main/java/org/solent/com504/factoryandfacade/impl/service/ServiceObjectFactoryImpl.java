@@ -9,9 +9,10 @@ import org.solent.com504.factoryandfacade.model.dao.AnimalTypeDao;
 import org.solent.com504.factoryandfacade.model.service.FarmFacade;
 import org.solent.com504.factoryandfacade.model.service.ServiceObjectFactory;
 
-// This is a hard coded implementation of the factory using the jaxb DAO 
+// This is a hard coded implementation of the factory using the jaxb DAO
 // and could be replaced by Spring
-public class ServiceObjectFactoryImpl implements ServiceObjectFactory {
+public class ServiceObjectFactoryImpl implements ServiceObjectFactory
+{
 
     // get a temporary directory to store our dao xml file
     public static final String TMP_DIR = System.getProperty("java.io.tmpdir");
@@ -24,15 +25,16 @@ public class ServiceObjectFactoryImpl implements ServiceObjectFactory {
     /**
      * Initialises farmFacade objectFactory
      */
-    public ServiceObjectFactoryImpl() {
+    public ServiceObjectFactoryImpl()
+    {
         this(DAFAULT_JAXB_FILE);
     }
 
     /**
      * Initialises farmFacade objectFactory with a given location for jaxb file
      */
-    public ServiceObjectFactoryImpl(String jaxbFile) {
-
+    public ServiceObjectFactoryImpl(String jaxbFile)
+    {
         farmFacade = new FarmFacadeImpl();
         AnimalTypeDao animalTypeDao = new AnimalTypeDaoImpl();
 
@@ -45,12 +47,14 @@ public class ServiceObjectFactoryImpl implements ServiceObjectFactory {
         farmFacade.setAnimalTypeDao(animalTypeDao);
     }
 
-    public FarmFacade getFarmFacade() {
+    public FarmFacade getFarmFacade()
+    {
         return farmFacade;
     }
 
     @Override
-    public void shutDown() {
+    public void shutDown()
+    {
         // do nothing
     }
 }

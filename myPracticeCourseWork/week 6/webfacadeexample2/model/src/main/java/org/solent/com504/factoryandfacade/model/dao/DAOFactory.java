@@ -6,18 +6,17 @@
 package org.solent.com504.factoryandfacade.model.dao;
 
 /**
- *
  * @author cgallen
  */
-public interface DAOFactory {
+public interface DAOFactory
+{
 
     public AnimalTypeDao getAnimalTypeDao();
 
     public AnimalDao getAnimalDao();
-    
+
     /**
      * shuts down all daos and persistence
      */
     public void shutDown();
-
 }

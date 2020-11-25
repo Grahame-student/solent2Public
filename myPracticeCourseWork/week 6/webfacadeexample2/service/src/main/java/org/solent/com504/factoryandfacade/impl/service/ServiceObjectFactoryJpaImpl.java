@@ -10,9 +10,10 @@ import org.solent.com504.factoryandfacade.model.dao.DAOFactory;
 import org.solent.com504.factoryandfacade.model.service.FarmFacade;
 import org.solent.com504.factoryandfacade.model.service.ServiceObjectFactory;
 
-// This is a hard coded implementation of the factory using the jaxb DAO 
+// This is a hard coded implementation of the factory using the jaxb DAO
 // and could be replaced by Spring
-public class ServiceObjectFactoryJpaImpl implements ServiceObjectFactory {
+public class ServiceObjectFactoryJpaImpl implements ServiceObjectFactory
+{
     final static Logger LOG = LogManager.getLogger(ServiceObjectFactoryJpaImpl.class);
 
     private FarmFacadeImpl farmFacade = null;
@@ -23,9 +24,8 @@ public class ServiceObjectFactoryJpaImpl implements ServiceObjectFactory {
     /**
      * Initialises farmFacade objectFactory
      */
-    public ServiceObjectFactoryJpaImpl() {
-            
-
+    public ServiceObjectFactoryJpaImpl()
+    {
         daoFactory = new DAOFactoryJPAImpl();
         animalDao = daoFactory.getAnimalDao();
         animalTypeDao = daoFactory.getAnimalTypeDao();
@@ -36,16 +36,18 @@ public class ServiceObjectFactoryJpaImpl implements ServiceObjectFactory {
         farmFacade.setAnimalTypeDao(animalTypeDao);
     }
 
-    public FarmFacade getFarmFacade() {
+    public FarmFacade getFarmFacade()
+    {
         return farmFacade;
     }
 
     @Override
-    public void shutDown() {
+    public void shutDown()
+    {
         LOG.debug("SERVICE OBJECT FACTORY SHUTTING DOWN ");
-        if (daoFactory != null) {
+        if (daoFactory != null)
+        {
             daoFactory.shutDown();
         }
     }
-
 }

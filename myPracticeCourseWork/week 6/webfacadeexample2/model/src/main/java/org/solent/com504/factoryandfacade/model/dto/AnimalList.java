@@ -17,27 +17,31 @@ import javax.xml.bind.annotation.XmlRootElement;
  */
 @XmlRootElement(name = "animalList")
 @XmlAccessorType(XmlAccessType.FIELD)
-public class AnimalList {
-
+public class AnimalList
+{
     @XmlElementWrapper(name = "alist")
     @XmlElement(name = "animal")
     private List<Animal> animals = new ArrayList<Animal>();
-    
+
     private Long currentMaxId = 0L;
 
-    public Long getCurrentMaxId() {
+    public Long getCurrentMaxId()
+    {
         return currentMaxId;
     }
 
-    public void setCurrentMaxId(Long currentMaxId) {
+    public void setCurrentMaxId(Long currentMaxId)
+    {
         this.currentMaxId = currentMaxId;
     }
 
-    public List<Animal> getAnimals() {
+    public List<Animal> getAnimals()
+    {
         return animals;
     }
 
-    public void setAnimals(List<Animal> animals) {
+    public void setAnimals(List<Animal> animals)
+    {
         this.animals = animals;
     }
 }

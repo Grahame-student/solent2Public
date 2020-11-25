@@ -11,34 +11,38 @@ import org.solent.com504.factoryandfacade.model.service.FarmFacade;
 import org.solent.com504.factoryandfacade.model.service.ServiceObjectFactory;
 
 /**
- *
  * @author gallenc
  */
-public class ClientObjectFactoryImpl implements ServiceObjectFactory {
+public class ClientObjectFactoryImpl implements ServiceObjectFactory
+{
 
     final static Logger LOG = LogManager.getLogger(ClientObjectFactoryImpl.class);
-    
+
     private FarmFacade farmFacade = null;
     private String baseUrl = "http://localhost:8080/basicfacadeweb/rest/farmService";
-    
+
     @Override
-    public FarmFacade getFarmFacade() {
-        
-        if (farmFacade == null) {
+    public FarmFacade getFarmFacade()
+    {
+
+        if (farmFacade == null)
+        {
             LOG.debug("creating new FarmRestClientImpl for baseUrl=" + baseUrl);
-            synchronized (this) {
-                if (farmFacade == null) {
+            synchronized (this)
+            {
+                if (farmFacade == null)
+                {
                     farmFacade = new FarmRestClientImpl(baseUrl);
                 }
             }
         }
-        
+
         return farmFacade;
     }
 
     @Override
-    public void shutDown() {
+    public void shutDown()
+    {
         // do nothing
     }
-    
 }

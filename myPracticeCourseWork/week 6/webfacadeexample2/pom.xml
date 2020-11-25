@@ -1,17 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <groupId>solent.ac.uk.ood.examples</groupId>
     <artifactId>webfacadeexample2</artifactId>
     <version>1.2-SNAPSHOT</version>
     <packaging>pom</packaging>
-    
+
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <maven.compiler.source>1.8</maven.compiler.source>
         <maven.compiler.target>1.8</maven.compiler.target>
-        
-        <log4j.version>2.12.1</log4j.version> 
+
+        <log4j.version>2.12.1</log4j.version>
         <slf4j.version>1.7.12</slf4j.version>
         <jersey.version>2.13</jersey.version>
         <javax.servlet-api.version>3.1.0</javax.servlet-api.version>
@@ -27,7 +28,7 @@
         <javassist.version>3.27.0-GA</javassist.version>
         <cglib-nodep.version>3.2.12</cglib-nodep.version>
     </properties>
-    
+
     <modules>
         <module>model</module>
         <module>dao-jaxb</module>
@@ -38,10 +39,10 @@
         <module>client-rest</module>
         <module>web-client</module>
     </modules>
-    
+
     <dependencyManagement>
         <dependencies>
-            
+
             <!-- servelet and jsp api's - provided by tomcat -->
             <dependency>
                 <groupId>javax.servlet.jsp</groupId>
@@ -49,14 +50,14 @@
                 <version>${jsp-api.version}</version>
                 <scope>provided</scope>
             </dependency>
-        
+
             <dependency>
                 <groupId>javax.servlet</groupId>
                 <artifactId>javax.servlet-api</artifactId>
                 <version>${javax.servlet-api.version}</version>
                 <scope>provided</scope>
             </dependency>
-            
+
             <!-- jersey dependencies -->
             <dependency>
                 <groupId>org.glassfish.jersey.core</groupId>
@@ -79,9 +80,9 @@
                 <artifactId>jersey-media-json-jackson</artifactId>
                 <version>${jersey.version}</version>
             </dependency>
-            
+
             <!-- logging dependencies -->
-            
+
             <!-- SLF4J Logging -->
             <dependency>
                 <groupId>org.slf4j</groupId>
@@ -93,9 +94,9 @@
                 <artifactId>jcl-over-slf4j</artifactId>
                 <version>${slf4j.version}</version>
             </dependency>
-            
+
             <!-- Log4j API and Core implementation  -->
-            
+
             <!-- SLF4J over Log4j -needed for eclipselink logging -->
             <dependency>
                 <groupId>org.apache.logging.log4j</groupId>
@@ -108,7 +109,7 @@
                 <artifactId>log4j-jcl</artifactId>
                 <version>${log4j.version}</version>
             </dependency>-->
-            
+
             <dependency>
                 <groupId>org.apache.logging.log4j</groupId>
                 <artifactId>log4j-api</artifactId>
@@ -119,21 +120,21 @@
                 <artifactId>log4j-core</artifactId>
                 <version>${log4j.version}</version>
             </dependency>
-            
+
             <!-- Log4j web required to run in a servelet context  -->
             <dependency>
                 <groupId>org.apache.logging.log4j</groupId>
                 <artifactId>log4j-web</artifactId>
                 <version>${log4j.version}</version>
             </dependency>
-            
+
             <!-- EclipseLink jpa dependencies -->
             <dependency>
                 <groupId>org.eclipse.persistence</groupId>
                 <artifactId>javax.persistence</artifactId>
                 <version>2.1.1</version>
             </dependency>
-        
+
             <!-- Spring dependencies -->
             <dependency>
                 <groupId>org.springframework</groupId>
@@ -174,7 +175,7 @@
                 <artifactId>cglib-nodep</artifactId>
                 <version>${cglib-nodep.version}</version>
             </dependency>
-        
+
             <!-- junit dependencies -->
             <dependency>
                 <groupId>junit</groupId>
@@ -188,7 +189,7 @@
             </dependency>
         </dependencies>
     </dependencyManagement>
-    
+
     <!-- Fix for using maven https in netbeans  -->
     <repositories>
         <repository>
@@ -201,7 +202,7 @@
             </snapshots>
         </repository>
     </repositories>
- 
+
     <pluginRepositories>
         <pluginRepository>
             <id>central</id>

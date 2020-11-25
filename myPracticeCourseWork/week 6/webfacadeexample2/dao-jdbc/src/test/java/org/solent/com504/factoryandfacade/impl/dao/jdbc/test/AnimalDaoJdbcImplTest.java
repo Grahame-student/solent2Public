@@ -6,9 +6,12 @@
 package org.solent.com504.factoryandfacade.impl.dao.jdbc.test;
 
 import java.util.List;
+
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+
 import static org.junit.Assert.*;
+
 import org.junit.Before;
 import org.junit.Test;
 import org.solent.com504.factoryandfacade.impl.dao.jdbc.DAOFactoryJdbcImpl;
@@ -17,10 +20,10 @@ import org.solent.com504.factoryandfacade.model.dto.Animal;
 import org.solent.com504.factoryandfacade.model.dto.AnimalType;
 
 /**
- *
  * @author cgallen
  */
-public class AnimalDaoJdbcImplTest {
+public class AnimalDaoJdbcImplTest
+{
 
     final static Logger LOG = LogManager.getLogger(AnimalDaoJdbcImplTest.class);
 
@@ -29,19 +32,22 @@ public class AnimalDaoJdbcImplTest {
     private DAOFactoryJdbcImpl daoFactory = new DAOFactoryJdbcImpl();
 
     @Before
-    public void before() {
+    public void before()
+    {
         animalDao = daoFactory.getAnimalDao();
         assertNotNull(animalDao);
     }
 
     @Test
-    public void testDatabaseCreation() {
+    public void testDatabaseCreation()
+    {
         LOG.debug("start testDatabaseCreation()");
         LOG.debug("end testDatabaseCreation()");
     }
 
     // initialise database
-    private void init() {
+    private void init()
+    {
         LOG.debug("initialising database for test");
         // delete all animals
         animalDao.deleteAll();
@@ -61,7 +67,8 @@ public class AnimalDaoJdbcImplTest {
         animalTypeCow.setSound("Moo");
 
         // create 3 animals of each type and add to database
-        for (int i = 0; i < 3; i++) {
+        for (int i = 0; i < 3; i++)
+        {
             Animal animal1 = animalDao.create(animalTypeCat);
             animal1.setName("Cat_" + i);
             animal1.setAddress("Cat_" + i + "_Address");
@@ -98,14 +105,15 @@ public class AnimalDaoJdbcImplTest {
         assertNotNull(animals);
         assertEquals(9, animals.size());
         LOG.debug("before test created animals:");
-        for (Animal a : animals) {
+        for (Animal a : animals)
+        {
             LOG.debug("\n   " + a);
         }
-
     }
 
     @Test
-    public void createTest() {
+    public void createTest()
+    {
         LOG.debug("start of createTest");
         AnimalType animalType = new AnimalType();
         animalType.setType("Cat");
@@ -116,7 +124,8 @@ public class AnimalDaoJdbcImplTest {
     }
 
     @Test
-    public void updateOrSaveTest() {
+    public void updateOrSaveTest()
+    {
         LOG.debug("start of updateOrSaveTest");
 
         assertNotNull(animalDao);
@@ -143,12 +152,14 @@ public class AnimalDaoJdbcImplTest {
         Animal newAnimal = animalDao.retrieve(id);
         LOG.debug("retrieved  details " + newAnimal);
         // quick and dirty equals
-        assertTrue(animal.toString().equals(newAnimal.toString()));
+        assertTrue(animal.toString()
+                         .equals(newAnimal.toString()));
         LOG.debug("end of updateOrSaveTest");
     }
 
     @Test
-    public void retrieveTest() {
+    public void retrieveTest()
+    {
         LOG.debug("start of retrieveTest()");
         assertNotNull(animalDao);
         init(); // initialise database
@@ -167,7 +178,8 @@ public class AnimalDaoJdbcImplTest {
 
         List<Animal> animalsRetrieved = animalDao.retrieve(animalTemplate);
         LOG.debug(animalsRetrieved.size() + " animalsRetrieved:");
-        for (Animal a : animalsRetrieved) {
+        for (Animal a : animalsRetrieved)
+        {
             LOG.debug("\n   " + a);
         }
 
@@ -178,7 +190,8 @@ public class AnimalDaoJdbcImplTest {
 
         animalsRetrieved = animalDao.retrieve(animalTemplate);
         LOG.debug(animalsRetrieved.size() + " animalsRetrieved:");
-        for (Animal a : animalsRetrieved) {
+        for (Animal a : animalsRetrieved)
+        {
             LOG.debug("\n   " + a);
         }
 
@@ -189,7 +202,8 @@ public class AnimalDaoJdbcImplTest {
 
         animalsRetrieved = animalDao.retrieve(animalTemplate);
         LOG.debug(animalsRetrieved.size() + " animalsRetrieved:");
-        for (Animal a : animalsRetrieved) {
+        for (Animal a : animalsRetrieved)
+        {
             LOG.debug("\n   " + a);
         }
 
@@ -200,7 +214,8 @@ public class AnimalDaoJdbcImplTest {
 
         animalsRetrieved = animalDao.retrieve(animalTemplate);
         LOG.debug(animalsRetrieved.size() + " animalsRetrieved:");
-        for (Animal a : animalsRetrieved) {
+        for (Animal a : animalsRetrieved)
+        {
             LOG.debug("\n   " + a);
         }
         assertEquals(1, animalsRetrieved.size());
@@ -210,7 +225,8 @@ public class AnimalDaoJdbcImplTest {
     }
 
     @Test
-    public void deleteTest() {
+    public void deleteTest()
+    {
         LOG.debug("start of deleteTest()");
         assertNotNull(animalDao);
         init(); // initialise database
@@ -231,18 +247,19 @@ public class AnimalDaoJdbcImplTest {
     }
 
     @Test
-    public void retrieveAllTest() {
+    public void retrieveAllTest()
+    {
         LOG.debug("start of retrieveAllTest()");
         assertNotNull(animalDao);
         init(); // initialise database
         List<Animal> animalsRetrieved = animalDao.retrieveAll();
 
         LOG.debug(animalsRetrieved.size() + " animalsRetrieved:");
-        for (Animal a : animalsRetrieved) {
+        for (Animal a : animalsRetrieved)
+        {
             LOG.debug("\n   " + a);
         }
 
         LOG.debug("end of retrieveAllTest()");
     }
-
 }

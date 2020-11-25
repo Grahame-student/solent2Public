@@ -13,19 +13,23 @@ import org.apache.logging.log4j.Logger;
 import org.solent.com504.factoryandfacade.impl.service.rest.client.ClientObjectFactoryImpl;
 
 /**
- *
  * @author gallenc
  */
-public class WebObjectFactory {
+public class WebObjectFactory
+{
     // SETS UP LOGGING
     final static Logger LOG = LogManager.getLogger(WebObjectFactory.class);
 
     private static FarmFacade farmFacade = null;
 
-    public static FarmFacade getServiceFacade() {
-        if (farmFacade == null) {
-            synchronized (WebObjectFactory.class) {
-                if (farmFacade == null) {
+    public static FarmFacade getServiceFacade()
+    {
+        if (farmFacade == null)
+        {
+            synchronized (WebObjectFactory.class)
+            {
+                if (farmFacade == null)
+                {
                     LOG.debug("client web application starting");
                     ServiceObjectFactory clientObjectFactory = new ClientObjectFactoryImpl();
                     farmFacade = clientObjectFactory.getFarmFacade();
@@ -34,5 +38,4 @@ public class WebObjectFactory {
         }
         return farmFacade;
     }
-
 }

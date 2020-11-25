@@ -10,10 +10,10 @@ import org.solent.com504.factoryandfacade.model.dao.AnimalDao;
 import org.solent.com504.factoryandfacade.model.dao.AnimalTypeDao;
 
 /**
- *
  * @author cgallen
  */
-public class DAOFactoryJaxbImpl {
+public class DAOFactoryJaxbImpl
+{
 
     // get a temporary directory to store our dao xml file
     public static final String TMP_DIR = System.getProperty("java.io.tmpdir");
@@ -28,28 +28,30 @@ public class DAOFactoryJaxbImpl {
     /**
      * Initialises farmFacade objectFactory
      */
-    public DAOFactoryJaxbImpl() {
+    public DAOFactoryJaxbImpl()
+    {
         this(DAFAULT_JAXB_FILE);
     }
 
     /**
      * Initialises objectFactory with a given location for jaxb file
      */
-    public DAOFactoryJaxbImpl(String jaxbFile) {
+    public DAOFactoryJaxbImpl(String jaxbFile)
+    {
 
         AnimalTypeDao animalTypeDao = new AnimalTypeDaoImpl();
 
         // NOTE THIS IS SAYING WHERE THE FILE GOES in TOMCAT
         AnimalDao animalDao = new AnimalDaoJaxbImpl(jaxbFile);
-
     }
 
-    public AnimalTypeDao getAnimalTypeDao() {
+    public AnimalTypeDao getAnimalTypeDao()
+    {
         return animalTypeDao;
     }
 
-    public AnimalDao getAnimalDao() {
+    public AnimalDao getAnimalDao()
+    {
         return animalDao;
     }
-
 }

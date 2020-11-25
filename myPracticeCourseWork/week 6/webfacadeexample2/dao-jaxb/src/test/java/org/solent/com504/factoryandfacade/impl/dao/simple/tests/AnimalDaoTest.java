@@ -6,8 +6,11 @@
 package org.solent.com504.factoryandfacade.impl.dao.simple.tests;
 
 import java.util.List;
+
 import org.junit.Test;
+
 import static org.junit.Assert.*;
+
 import org.junit.Before;
 import org.solent.com504.factoryandfacade.impl.dao.simple.AnimalDaoImpl;
 import org.solent.com504.factoryandfacade.impl.dao.simple.AnimalTypeDaoImpl;
@@ -17,34 +20,39 @@ import org.solent.com504.factoryandfacade.model.dto.Animal;
 import org.solent.com504.factoryandfacade.model.dto.AnimalType;
 
 /**
- *
  * @author gallenc
  */
-public class AnimalDaoTest {
+public class AnimalDaoTest
+{
 
     AnimalDao animalDao = null;
     AnimalTypeDao animalTypeDao = null;
 
-    public void setAnimalDao(AnimalDao animalDao) {
+    public void setAnimalDao(AnimalDao animalDao)
+    {
         this.animalDao = animalDao;
     }
 
-    public void setAnimalTypeDao(AnimalTypeDao animalTypeDao) {
+    public void setAnimalTypeDao(AnimalTypeDao animalTypeDao)
+    {
         this.animalTypeDao = animalTypeDao;
     }
 
     @Before
-    public void init() {
+    public void init()
+    {
         animalDao = new AnimalDaoImpl();
         animalTypeDao = new AnimalTypeDaoImpl();
     }
 
     @Test
-    public void testDao() {
+    public void testDao()
+    {
         System.out.println("start of testAnimalDao");
 
         // create one of each animal type and test you can retreive same
-        for (AnimalType type : animalTypeDao.getSupportedAnimalTypes()) {
+        for (AnimalType type : animalTypeDao.getSupportedAnimalTypes())
+        {
             Animal newAnimal = animalDao.create(type);
             assertNull(newAnimal.getId());
 
@@ -60,19 +68,23 @@ public class AnimalDaoTest {
             System.out.println("created new animal=" + savedAnimal);
             Animal retrievedAnimal = animalDao.retrieve(savedAnimal.getId());
             System.out.println("retreived new animal=" + retrievedAnimal);
-            assertTrue(retrievedAnimal.toString().equals(savedAnimal.toString()));
+            assertTrue(retrievedAnimal.toString()
+                                      .equals(savedAnimal.toString()));
         }
 
         // test we can retreive all animals
         List<Animal> animals = animalDao.retrieveAll();
-        assertEquals(animalTypeDao.getSupportedAnimalTypes().size(), animals.size());
+        assertEquals(animalTypeDao.getSupportedAnimalTypes()
+                                  .size(), animals.size());
 
         // retreive animal id = 2
         Animal animal2 = animalDao.retrieve(2L);
         System.out.println("\nretreived animal2=" + animal2);
-        assertTrue(animal2.getAddress().equals("address_2"));
+        assertTrue(animal2.getAddress()
+                          .equals("address_2"));
 
-        AnimalType type = animalTypeDao.getSupportedAnimalTypes().get(0);
+        AnimalType type = animalTypeDao.getSupportedAnimalTypes()
+                                       .get(0);
         System.out.println("\ncreating animal for type=" + type);
         Animal templateAnimal = animalDao.create(type);
 
@@ -80,10 +92,10 @@ public class AnimalDaoTest {
         List<Animal> animallist = animalDao.retrieve(templateAnimal);
 
         assertEquals(1, animallist.size());
-        for (Animal animal : animallist) {
+        for (Animal animal : animallist)
+        {
             System.out.println("list animal=" + animal);
         }
         System.out.println("end of testAnimalDao");
     }
-
 }

@@ -1,16 +1,16 @@
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@page contentType="text/html" pageEncoding="UTF-8" %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
-    "http://www.w3.org/TR/html4/loose.dtd">
+"http://www.w3.org/TR/html4/loose.dtd">
 
-<%@page import="java.util.List"%>
-<%@page import="java.util.ArrayList"%>
-<%@page import="java.util.Date"%>
-<%@page import="org.solent.com504.factoryandfacade.model.dto.Animal"%>
-<%@page import="org.solent.com504.factoryandfacade.model.service.FarmFacade"%>
-<%@page import="org.solent.com504.factoryandfacade.impl.webclient.WebObjectFactory"%>
+<%@page import="java.util.List" %>
+<%@page import="java.util.ArrayList" %>
+<%@page import="java.util.Date" %>
+<%@page import="org.solent.com504.factoryandfacade.model.dto.Animal" %>
+<%@page import="org.solent.com504.factoryandfacade.model.service.FarmFacade" %>
+<%@page import="org.solent.com504.factoryandfacade.impl.webclient.WebObjectFactory" %>
 
 <%
-    // used to place error message at top of page 
+    // used to place error message at top of page
     String errorMessage = "";
 
     // used to set html header autoload time. This automatically refreshes the page
@@ -22,9 +22,12 @@
     List<Animal> animals = new ArrayList();
 
     // if the client throws an error, we will show on page
-    try {
+    try
+    {
         animals = farmFacade.getAllAnimals();
-    } catch (Exception ex) {
+    }
+    catch (Exception ex)
+    {
         errorMessage = ex.getMessage();
     }
 
@@ -38,7 +41,8 @@
     <body>
         <H1>Client Page for Farm</H1>
         <!-- print error message if there is one -->
-        <div style="color:red;"><%=errorMessage%></div>
+        <div style="color:red;"><%=errorMessage%>
+        </div>
 
         <p>The refreshed time is: <%= new Date().toString()%> (note page is auto refreshed every 20 seconds)</p>
 
@@ -49,16 +53,22 @@
                 <th>Name</th>
                 <th>Sound</th>
             </tr>
-            <% for (Animal animal : animals) {%>
+            <% for (Animal animal : animals)
+            {%>
             <tr>
-                <td><%=animal.getAnimalType().getType()%></td>
-                <td><%=animal.getName()%></td>
-                <td><%=animal.getAnimalType().getSound()%></td>
+                <td><%=animal.getAnimalType()
+                             .getType()%>
+                </td>
+                <td><%=animal.getName()%>
+                </td>
+                <td><%=animal.getAnimalType()
+                             .getSound()%>
+                </td>
             </tr>
             <%
                 }
             %>
-        </table> 
+        </table>
 
     </body>
 </html>

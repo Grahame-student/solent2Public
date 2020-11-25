@@ -6,25 +6,32 @@
 package org.solent.com504.factoryandfacade.impl.dao.jdbc.test;
 
 import java.sql.Connection;
+
 import org.junit.Test;
+
 import static org.junit.Assert.*;
+
 import org.solent.com504.factoryandfacade.impl.dao.jdbc.ConnectionFactory;
 
 /**
- *
  * @author cgallen
  */
-public class ConnectionFactoryTest {
+public class ConnectionFactoryTest
+{
 
     @Test
-    public void testConnection() {
+    public void testConnection()
+    {
 
-        try {
-            Connection conn = ConnectionFactory.getInstance().getConnection();
+        try
+        {
+            Connection conn = ConnectionFactory.getInstance()
+                                               .getConnection();
             conn.close();
-        } catch (Exception ex) {
+        }
+        catch (Exception ex)
+        {
             throw new RuntimeException(ex);
         }
-
     }
 }

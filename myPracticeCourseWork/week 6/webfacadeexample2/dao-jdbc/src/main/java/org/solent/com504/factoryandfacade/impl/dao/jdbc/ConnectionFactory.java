@@ -6,9 +6,9 @@
 package org.solent.com504.factoryandfacade.impl.dao.jdbc;
 
 /**
- *
  * @author cgallen
  */
+
 import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
@@ -17,10 +17,12 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.util.Properties;
+
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-public class ConnectionFactory {
+public class ConnectionFactory
+{
 
     final static Logger LOG = LogManager.getLogger(ConnectionFactory.class);
 
@@ -32,11 +34,14 @@ public class ConnectionFactory {
     private Properties prop = new Properties();
     private static ConnectionFactory connectionFactory = null;
 
-    private ConnectionFactory() {
+    private ConnectionFactory()
+    {
 
-        try {
+        try
+        {
             //load a properties file from class path, inside static method
-            prop.load(ConnectionFactory.class.getClassLoader().getResourceAsStream("connection.properties"));
+            prop.load(ConnectionFactory.class.getClassLoader()
+                                             .getResourceAsStream("connection.properties"));
 
             //get the property value and print it out
             driverClassName = prop.getProperty("javax.persistence.jdbc.driver");
@@ -46,24 +51,30 @@ public class ConnectionFactory {
             LOG.debug("connection factory loading properties javax.persistence.jdbc.driver=" + driverClassName);
             LOG.debug("connection factory loading properties javax.persistence.jdbc.url=" + connectionUrl);
 
-            // this will load the driver class 
-           Class.forName(driverClassName);
-
-        } catch (Exception e) {
+            // this will load the driver class
+            Class.forName(driverClassName);
+        }
+        catch (Exception e)
+        {
             LOG.error("connection factory problem loading config", e);
         }
     }
 
-    public Connection getConnection() throws SQLException {
+    public Connection getConnection() throws SQLException
+    {
         Connection conn = null;
         conn = DriverManager.getConnection(connectionUrl, dbUser, dbPwd);
         return conn;
     }
 
-    public static ConnectionFactory getInstance() {
-        if (connectionFactory == null) {
-            synchronized (ConnectionFactory.class) {
-                if (connectionFactory == null) {
+    public static ConnectionFactory getInstance()
+    {
+        if (connectionFactory == null)
+        {
+            synchronized (ConnectionFactory.class)
+            {
+                if (connectionFactory == null)
+                {
                     connectionFactory = new ConnectionFactory();
                 }
             }

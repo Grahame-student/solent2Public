@@ -16,48 +16,57 @@ import javax.xml.bind.annotation.XmlRootElement;
 @XmlRootElement
 @XmlAccessorType(XmlAccessType.FIELD)
 @Embeddable
-public class AnimalType {
+public class AnimalType
+{
 
     private String sound;
 
     private String type;
-    
+
     // default constructor
-    public AnimalType(){
+    public AnimalType()
+    {
     }
 
     // added constructor
-    public AnimalType(String type, String sound ) {
+    public AnimalType(String type, String sound)
+    {
         this.sound = sound;
         this.type = type;
     }
 
-    public void setSound(String sound) {
+    public void setSound(String sound)
+    {
         this.sound = sound;
     }
 
-    public void setType(String type) {
+    public void setType(String type)
+    {
         this.type = type;
     }
 
     // getter and setters
-    public String getSound() {
+    public String getSound()
+    {
         return sound;
     }
-  
-    public String getType() {
+
+    public String getType()
+    {
         return type;
     }
 
-    
+
     // additional methods
     @Override
-    public String toString() {
+    public String toString()
+    {
         return "AnimalType{" + "sound=" + sound + ", type=" + type + '}';
     }
 
     @Override
-    public int hashCode() {
+    public int hashCode()
+    {
         int hash = 7;
         hash = 97 * hash + Objects.hashCode(this.sound);
         hash = 97 * hash + Objects.hashCode(this.type);
@@ -65,25 +74,29 @@ public class AnimalType {
     }
 
     @Override
-    public boolean equals(Object obj) {
-        if (this == obj) {
+    public boolean equals(Object obj)
+    {
+        if (this == obj)
+        {
             return true;
         }
-        if (obj == null) {
+        if (obj == null)
+        {
             return false;
         }
-        if (getClass() != obj.getClass()) {
+        if (getClass() != obj.getClass())
+        {
             return false;
         }
         final AnimalType other = (AnimalType) obj;
-        if (!Objects.equals(this.sound, other.sound)) {
+        if (!Objects.equals(this.sound, other.sound))
+        {
             return false;
         }
-        if (!Objects.equals(this.type, other.type)) {
+        if (!Objects.equals(this.type, other.type))
+        {
             return false;
         }
         return true;
     }
-
-
 }

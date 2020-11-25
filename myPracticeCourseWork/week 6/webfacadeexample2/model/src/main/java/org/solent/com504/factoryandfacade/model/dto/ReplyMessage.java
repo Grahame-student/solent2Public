@@ -21,7 +21,8 @@ import javax.xml.bind.annotation.XmlRootElement;
  */
 @XmlRootElement
 @XmlAccessorType(XmlAccessType.FIELD)
-public class ReplyMessage {
+public class ReplyMessage
+{
 
     /**
      * http response code
@@ -45,43 +46,50 @@ public class ReplyMessage {
     @XmlElement(name = "string")
     private List<String> stringList = new ArrayList<String>();
 
-    public Integer getCode() {
+    public Integer getCode()
+    {
         return code;
     }
 
-    public void setCode(Integer code) {
+    public void setCode(Integer code)
+    {
         this.code = code;
     }
 
-    public String getDebugMessage() {
+    public String getDebugMessage()
+    {
         return debugMessage;
     }
 
-    public void setDebugMessage(String debugMessage) {
+    public void setDebugMessage(String debugMessage)
+    {
         this.debugMessage = debugMessage;
     }
 
-    public AnimalList getAnimalList() {
+    public AnimalList getAnimalList()
+    {
         return animalList;
     }
 
-    public void setAnimalList(AnimalList animalList) {
+    public void setAnimalList(AnimalList animalList)
+    {
         this.animalList = animalList;
     }
 
-    public List<String> getStringList() {
+    public List<String> getStringList()
+    {
         return stringList;
     }
 
-    public void setStringList(List<String> stringList) {
+    public void setStringList(List<String> stringList)
+    {
         this.stringList = stringList;
     }
 
     @Override
-    public String toString() {
-        return "ReplyMessage{" + "code=" + code + ", debugMessage=" + debugMessage + ", animalList=" + animalList + ", stringList=" + stringList + '}';
+    public String toString()
+    {
+        return "ReplyMessage{" + "code=" + code + ", debugMessage=" + debugMessage + ", animalList=" + animalList +
+               ", stringList=" + stringList + '}';
     }
-    
-    
-
 }

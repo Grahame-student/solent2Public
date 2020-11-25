@@ -6,8 +6,11 @@
 package org.solent.com504.factoryandfacade.impl.service.test;
 
 import java.util.List;
+
 import org.junit.Test;
+
 import static org.junit.Assert.*;
+
 import org.junit.Before;
 import org.solent.com504.factoryandfacade.impl.service.ServiceObjectFactoryImpl;
 import org.solent.com504.factoryandfacade.impl.service.ServiceObjectFactoryJpaImpl;
@@ -16,26 +19,28 @@ import org.solent.com504.factoryandfacade.model.service.FarmFacade;
 import org.solent.com504.factoryandfacade.model.service.ServiceObjectFactory;
 
 /**
- *
  * @author gallenc
  */
-public class FarmFacadeJpaTest {
-    
+public class FarmFacadeJpaTest
+{
+
     ServiceObjectFactory serviceObjectFactory = null;
     FarmFacade farmFacade = null;
 
     List<String> supportedAnimalTypes = null;
 
     @Before
-    public void loadFactory() {
+    public void loadFactory()
+    {
 
         serviceObjectFactory = new ServiceObjectFactoryJpaImpl();
-        
+
         farmFacade = serviceObjectFactory.getFarmFacade();
 
         // delete all previously added animals
         List<Animal> allAnimals = farmFacade.getAllAnimals();
-        for (Animal animal : allAnimals) {
+        for (Animal animal : allAnimals)
+        {
             farmFacade.removeAnimal(animal.getName());
         }
         allAnimals = farmFacade.getAllAnimals();
@@ -43,7 +48,8 @@ public class FarmFacadeJpaTest {
     }
 
     @Test
-    public void testFactory() {
+    public void testFactory()
+    {
         System.out.println("start FarmFacadeTest testFactory");
         assertNotNull(farmFacade);
 
@@ -59,30 +65,38 @@ public class FarmFacadeJpaTest {
     }
 
     @Test
-    public void testaddDuplicateAnimal() {
+    public void testaddDuplicateAnimal()
+    {
         System.out.println("start FarmFacadeTest testaddDuplicateAnimal");
 
         assertNotNull(farmFacade);
 
-        String type = farmFacade.getSupportedAnimalTypes().get(0);
+        String type = farmFacade.getSupportedAnimalTypes()
+                                .get(0);
         String name = "duplicateTestName";
         farmFacade.addAnimal(type, name);
-        assertEquals(1, farmFacade.getAllAnimals().size());
+        assertEquals(1, farmFacade.getAllAnimals()
+                                  .size());
 
-        try {
+        try
+        {
             // adding duplicate name - should throw exception
             farmFacade.addAnimal(type, name);
             fail("adding duplicate animal did not throw IllegalArgumentException ");
-        } catch (IllegalArgumentException e) {
+        }
+        catch (IllegalArgumentException e)
+        {
         }
 
-        assertEquals(1, farmFacade.getAllAnimals().size());
+        assertEquals(1, farmFacade.getAllAnimals()
+                                  .size());
 
         System.out.println("end FarmFacadeTest testaddDuplicateAnimal");
     }
 
     @Test
-    public void testFarmFacade() {
+    public void testFarmFacade()
+    {
         System.out.println("start FarmFacadeTest testFarmFacade");
 
         assertNotNull(farmFacade);
@@ -92,8 +106,10 @@ public class FarmFacadeJpaTest {
 
         System.out.println("testing adding supported animals to facade:");
         // create 3 of every animal type
-        for (int i = 0; i < 3; i++) {
-            for (String animalType : supportedAnimalTypes) {
+        for (int i = 0; i < 3; i++)
+        {
+            for (String animalType : supportedAnimalTypes)
+            {
                 String name = animalType + "_" + i;
                 farmFacade.addAnimal(animalType, name);
             }
@@ -101,7 +117,8 @@ public class FarmFacadeJpaTest {
 
         List<Animal> allAnimals = farmFacade.getAllAnimals();
         assertEquals(9, allAnimals.size());
-        for (Animal animal : allAnimals) {
+        for (Animal animal : allAnimals)
+        {
             System.out.println("facade Animal:" + animal);
         }
 
@@ -110,13 +127,15 @@ public class FarmFacadeJpaTest {
         assertEquals(3, cats.size());
 
         //remove all cats
-        for (Animal cat : cats) {
+        for (Animal cat : cats)
+        {
             String name = cat.getName();
             farmFacade.removeAnimal(name);
         }
 
         // check all cats are removed
-        assertEquals(0, farmFacade.getAnimalsOfType("Cat").size());
+        assertEquals(0, farmFacade.getAnimalsOfType("Cat")
+                                  .size());
 
         // check that 3 animals ( cats0 hae been removed
         allAnimals = farmFacade.getAllAnimals();
@@ -131,6 +150,5 @@ public class FarmFacadeJpaTest {
         assertEquals(animal.getAnimalType(), animal2.getAnimalType());
 
         System.out.println("end FarmFacadeTest testFarmFacade");
-
     }
 }

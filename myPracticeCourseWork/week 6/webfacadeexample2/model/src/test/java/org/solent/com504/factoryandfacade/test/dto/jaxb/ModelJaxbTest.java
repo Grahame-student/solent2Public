@@ -14,25 +14,30 @@ import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;
 import javax.xml.bind.Marshaller;
 import javax.xml.bind.Unmarshaller;
+
 import org.junit.Test;
+
 import static org.junit.Assert.*;
+
 import org.solent.com504.factoryandfacade.model.dto.Animal;
 import org.solent.com504.factoryandfacade.model.dto.AnimalList;
 import org.solent.com504.factoryandfacade.model.dto.AnimalType;
 import org.solent.com504.factoryandfacade.model.dto.ReplyMessage;
 
 /**
- *
  * @author gallenc
  */
-public class ModelJaxbTest {
+public class ModelJaxbTest
+{
 
     @Test
-    public void testAnimalListJaxb() {
+    public void testAnimalListJaxb()
+    {
 
-        try {
+        try
+        {
 
-            // test file we will write and read. 
+            // test file we will write and read.
             // Note in target folder so that will be deleted on each run and will not be saved to git
             File file = new File("target/testTransactionData.xml");
             System.out.println("writing test file to " + file.getAbsolutePath());
@@ -51,19 +56,20 @@ public class ModelJaxbTest {
             Animal animal = new Animal();
             animal.setAddress("32 Windsor Gardens in Notting Hill");
             animal.setName("Paddington");
-            AnimalType animalType = new AnimalType("Bear","Could I have some marmalade please");
+            AnimalType animalType = new AnimalType("Bear", "Could I have some marmalade please");
             animal.setAnimalType(animalType);
-            
-                        // create an object to test
+
+            // create an object to test
             AnimalList animalList = new AnimalList();
-            animalList.getAnimals().add(animal);
-            
+            animalList.getAnimals()
+                      .add(animal);
+
             ReplyMessage replyMessage = new ReplyMessage();
             replyMessage.setCode(200);
             replyMessage.setDebugMessage("OK");
             replyMessage.setAnimalList(animalList);
-            
-            List stringList = new ArrayList(Arrays.asList("hello","goodbye"));
+
+            List stringList = new ArrayList(Arrays.asList("hello", "goodbye"));
             replyMessage.setStringList(stringList);
 
             // create XML from the object
@@ -84,8 +90,9 @@ public class ModelJaxbTest {
 
             // check transmitted and recieved messages are the same
             assertEquals(sw1.toString(), sw2.toString());
-
-        } catch (JAXBException e) {
+        }
+        catch (JAXBException e)
+        {
             throw new RuntimeException("problem testing jaxb marshalling", e);
         }
     }

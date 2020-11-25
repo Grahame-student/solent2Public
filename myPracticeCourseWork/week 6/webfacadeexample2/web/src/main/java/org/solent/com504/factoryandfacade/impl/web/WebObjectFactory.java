@@ -14,6 +14,7 @@ import java.util.Enumeration;
 import javax.servlet.ServletContextEvent;
 import javax.servlet.ServletContextListener;
 import javax.servlet.annotation.WebListener;
+
 import org.solent.com504.factoryandfacade.model.service.FarmFacade;
 import org.solent.com504.factoryandfacade.model.service.ServiceObjectFactory;
 import org.solent.com504.factoryandfacade.impl.service.ServiceObjectFactoryJpaImpl;
@@ -24,13 +25,14 @@ import org.apache.logging.log4j.Logger;
 /**
  * ServletContextListeneer executes code on web app startup and shutdown
  * https://www.deadcoderising.com/execute-code-on-webapp-startup-and-shutdown-using-servletcontextlistener/
- * https://blog.georgovassilis.com/2014/01/15/tomcat-spring-and-memory-leaks-when-undeploying-or-redeploying-an-web-application/  
+ * https://blog.georgovassilis.com/2014/01/15/tomcat-spring-and-memory-leaks-when-undeploying-or-redeploying-an-web-application/
  * Tomcat, Spring and memory leaks when undeploying or redeploying an web application
  *
  * @author gallenc
  */
 @WebListener
-public class WebObjectFactory implements ServletContextListener {
+public class WebObjectFactory implements ServletContextListener
+{
 
     final static Logger LOG = LogManager.getLogger(WebObjectFactory.class);
 
@@ -40,10 +42,14 @@ public class WebObjectFactory implements ServletContextListener {
 
     private static ServiceObjectFactory serviceObjectFactory = null;
 
-    public static FarmFacade getServiceFacade() {
-        if (farmFacade == null) {
-            synchronized (WebObjectFactory.class) {
-                if (farmFacade == null) {
+    public static FarmFacade getServiceFacade()
+    {
+        if (farmFacade == null)
+        {
+            synchronized (WebObjectFactory.class)
+            {
+                if (farmFacade == null)
+                {
                     LOG.debug("web application starting");
 
                     // this is needed to allow Derby to work as in embedded server
@@ -62,47 +68,63 @@ public class WebObjectFactory implements ServletContextListener {
     }
 
     @Override
-    public void contextInitialized(ServletContextEvent sce) {
+    public void contextInitialized(ServletContextEvent sce)
+    {
         LOG.debug("WEB OBJECT FACTORY context initialised");
         // nothing to do
     }
 
     @Override
-    public void contextDestroyed(ServletContextEvent sce) {
+    public void contextDestroyed(ServletContextEvent sce)
+    {
         LOG.debug("WEB OBJECT FACTORY shutting down context");
-        if (serviceObjectFactory != null) {
-            synchronized (WebObjectFactory.class) {
+        if (serviceObjectFactory != null)
+        {
+            synchronized (WebObjectFactory.class)
+            {
                 LOG.debug("WEB OBJECT FACTORY shutting down serviceObjectFactory");
                 serviceObjectFactory.shutDown();
                 LOG.debug("WEB OBJECT FACTORY shutting down derby database");
                 shutdownDerby();
                 LOG.debug("WEB OBJECT FACTORY derby shutdown");
             }
-
         }
     }
 
-    // code to shutdown derby 
+    // code to shutdown derby
     // based on https://github.com/nuzayats/derby-shutdown-listener
-    private static void shutdownDerby() {
+    private static void shutdownDerby()
+    {
         Connection cn = null;
-        try {
+        try
+        {
             cn = DriverManager.getConnection("jdbc:derby:;shutdown=true");
             LOG.debug("Derby shutdown failed (no exception occurred).");
-        } catch (SQLException e) {
-            if ("XJ015".equals(e.getSQLState())) {
+        }
+        catch (SQLException e)
+        {
+            if ("XJ015".equals(e.getSQLState()))
+            {
                 LOG.info("Derby shutdown succeeded. SQLState={0}, message={1}",
                         new Object[]{e.getSQLState(), e.getMessage()});
                 // LOG.debug( "Derby shutdown exception", e);
-            } else {
+            }
+            else
+            {
                 LOG.info("Derby shutdown failed or may not yet loaded. message: {0}", e.getMessage());
                 LOG.debug("Derby shutdown failed", e);
             }
-        } finally {
-            if (cn != null) {
-                try {
+        }
+        finally
+        {
+            if (cn != null)
+            {
+                try
+                {
                     cn.close();
-                } catch (Exception e) {
+                }
+                catch (Exception e)
+                {
                     LOG.warn("Database closing error", e);
                 }
             }
@@ -110,14 +132,17 @@ public class WebObjectFactory implements ServletContextListener {
         // unregister any jdbc drivers
         LOG.info("Unregistering any JDBC drivers ");
         Enumeration<Driver> drivers = DriverManager.getDrivers();
-        while (drivers.hasMoreElements()) {
+        while (drivers.hasMoreElements())
+        {
             java.sql.Driver driver = drivers.nextElement();
             LOG.info("Unregistering JDBC driver " + driver);
-            try {
+            try
+            {
                 java.sql.DriverManager.deregisterDriver(driver);
-            } catch (Throwable t) {
+            }
+            catch (Throwable t)
+            {
             }
         }
     }
-
 }
