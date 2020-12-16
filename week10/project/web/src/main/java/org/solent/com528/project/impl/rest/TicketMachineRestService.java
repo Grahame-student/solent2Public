@@ -22,6 +22,9 @@ import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import org.solent.com528.project.impl.web.WebObjectFactory;
+import org.solent.com528.project.model.dao.PriceCalculatorDAO;
+import org.solent.com528.project.model.dao.StationDAO;
 import org.solent.com528.project.model.dto.PriceBand;
 import org.solent.com528.project.model.dto.PricingDetails;
 import org.solent.com528.project.model.dto.Rate;
@@ -39,7 +42,7 @@ import org.solent.com528.project.model.service.ServiceFacade;
 public class TicketMachineRestService {
 
     // SETS UP LOGGING 
-    // note that log name will be org.solent.com504.factoryandfacade.impl.rest.TicketMachineRestService
+    // note that log name will be org.solent.com528.factoryandfacade.impl.rest.TicketMachineRestService
     final static Logger LOG = LogManager.getLogger(TicketMachineRestService.class);
 
     /**
@@ -68,11 +71,14 @@ public class TicketMachineRestService {
     public Response getTicketMachineConfig(@QueryParam("uuid") String uuid) {
         try {
 
-            // ServiceFacade serviceFacade = WebObjectFactory.getServiceFacade();
+            ServiceFacade serviceFacade = WebObjectFactory.getServiceFacade();
+            StationDAO stationDAO = serviceFacade.getStationDAO();
+            PriceCalculatorDAO priceCalculatorDAO = serviceFacade.getPriceCalculatorDAO();
+            
             ReplyMessage replyMessage = new ReplyMessage();
             LOG.debug("/getTicketMachineConfig called  uuid=" + uuid);
-
-            if (uuid == null || uuid.isBlank()) {
+            // NOTE change this to uuid.isEmpty() if using java 8
+            if (uuid == null || uuid.isEmpty()) {
                 throw new IllegalArgumentException("uuid query must be defined ?uuid=xxx");
             }
             // get this from local properties
@@ -106,19 +112,22 @@ public class TicketMachineRestService {
             priceBandList.add(priceBand3);
 
             // STATION LIST
-            List<Station> stationList = new ArrayList();
-            Station station = new Station();
-            station.setName("Waterloo");
-            station.setZone(1);
-            stationList.add(station);
-            Station station2 = new Station();
-            station2.setName("Abbey Road");
-            station2.setZone(2);
-            stationList.add(station2);
-            Station station3 = new Station();
-            station3.setName("Acton Town");
-            station3.setZone(3);
-            stationList.add(station3);
+            
+            List<Station> stationList = stationDAO.findAll();
+            
+//            List<Station> stationList = new ArrayList();
+//            Station station = new Station();
+//            station.setName("Waterloo");
+//            station.setZone(1);
+//            stationList.add(station);
+//            Station station2 = new Station();
+//            station2.setName("Abbey Road");
+//            station2.setZone(2);
+//            stationList.add(station2);
+//            Station station3 = new Station();
+//            station3.setName("Acton Town");
+//            station3.setZone(3);
+//            stationList.add(station3);
 
             // 200 CODE
             replyMessage.setCode(Response.Status.OK.getStatusCode());
